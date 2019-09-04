@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:orderInCategory="1"
+        android:id="@+id/login"
+        app:showAsAction="always"
+        android:title="로그인"
+        />
+    <item
+        android:orderInCategory="2"
+        android:id="@+id/logout"
+        app:showAsAction="always"
+        android:title="로그아웃"
+        />
+    <item
+        android:orderInCategory="3"
+        android:id="@+id/next"
+        app:showAsAction="always"
+        android:title="다음"
+        />
+    <item
+        android:orderInCategory="4"
+        android:id="@+id/setting"
+        app:showAsAction="always"
+        android:title="설정">
+        <menu>
+            <item
+                android:id="@+id/settingsub1"
+                android:title="서브메뉴1"
+                />
+            <item
+                android:id="@+id/settingsub2"
+                android:title="서브메뉴2"
+                />
+        </menu>
+    </item>
+
+</menu>
