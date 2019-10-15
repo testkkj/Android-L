@@ -1,0 +1,20 @@
+<resources>
+    <String name="app_name">싱글 다이어리</String>
+
+    <String name="tab_title1">목록</String>
+    <String name="tab_title2">작성</String>
+    <String name="tab_title3">통계</String>
+
+    <String name="write_today">오늘 작성</String>
+
+    <String name="today_date_string">0월 0일</String>
+    <String name="address_string">00구 00동</String>
+    <String name="input_contents_hint">내용 입력</String>
+    <String name="save_button">저장</String>
+    <String name="delete_button">삭제</String>
+    <String name="close_button">닫기</String>
+
+    <String name="graph1_title">기분별 비율</String>
+    <String name="graph2_title">요일별 기분</String>
+    <String name="graph3_title">기분 변화</String>
+</resources>

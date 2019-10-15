@@ -46,7 +46,7 @@ public class ColorPaletteDialog extends Activity {
 
 class ColorDataAdapter extends BaseAdapter {
     Context mContext;
-    public static final int[] color = new int[]{
+    public static final int[] colors = new int[]{
             0xff000000, 0xff00007f, 0xff0000ff, 0xff007f00, 0xff007f7f, 0xff00ff00, 0xff00ff7f,
             0xff00ffff, 0xff7f007f, 0xff7f00ff, 0xff7f7f00, 0xff7f7f7f, 0xffff0000, 0xffff007f,
             0xffff00ff, 0xffff7f00, 0xffff7f7f, 0xffff7fff, 0xffffff00, 0xffffff7f, 0xffffffff
@@ -92,7 +92,7 @@ class ColorDataAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 if (ColorPaletteDialog.listener != null) {
-                    ColorPaletteDialog.listener.onColorSelected((Integer) view.getTag()).intValue();
+                    ColorPaletteDialog.listener.onColorSelected(((Integer) view.getTag()).intValue());
                 }
                 ((ColorPaletteDialog) mContext).fileList();
             }

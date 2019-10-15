@@ -30,6 +30,7 @@ public class PenPaletteDialog extends Activity {
         this.setTitle("Pen Selection");
 
         grid = findViewById(R.id.colorGrid);
+        closeBtn = findViewById(R.id.closeBtn);
         grid.setColumnWidth(14);
         grid.setBackgroundColor(Color.GRAY);
         grid.setVerticalSpacing(4);
@@ -37,7 +38,9 @@ public class PenPaletteDialog extends Activity {
 
         adapter = new PenDataAdapter(this);
         grid.setAdapter(adapter);
-        grid.setOnClickListener(new View.OnClickListener() {
+        grid.setNumColumns(adapter.getNumColumns());
+
+        closeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
@@ -111,8 +114,8 @@ class PenDataAdapter extends BaseAdapter {
         altem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (ColorPaletteDialog.listener != null) {
-                    ColorPaletteDialog.listener.onPenselected((Integer) view.getTag()).intValue();
+                if (PenPaletteDialog.listener != null) {
+                    PenPaletteDialog.listener.onPenselected(((Integer) view.getTag()).intValue());
                 }
                 ((PenPaletteDialog) mContext).fileList();
             }

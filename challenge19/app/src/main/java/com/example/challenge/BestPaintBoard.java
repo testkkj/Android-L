@@ -26,7 +26,7 @@ public class BestPaintBoard extends View {
     private float mCurveEndX;
     private float mCurveEndY;
 
-    private int minvalidateExtraBorder = 10;
+    private int mInvalidateExtraBorder = 10;
     static final float TOUCH_TOLERANCE = 8;
 
     public BestPaintBoard(Context context) {
@@ -117,7 +117,7 @@ public class BestPaintBoard extends View {
                 if (rect != null) {
                     invalidate(rect);
                 }
-                mPath.rewind();
+//                mPath.rewind();
                 return true;
 
             case MotionEvent.ACTION_DOWN:
@@ -126,7 +126,6 @@ public class BestPaintBoard extends View {
                 if (rect != null) {
                     invalidate(rect);
                 }
-                mPath.rewind();
                 return true;
 
             case MotionEvent.ACTION_MOVE:
@@ -134,7 +133,6 @@ public class BestPaintBoard extends View {
                 if (rect != null) {
                     invalidate(rect);
                 }
-                mPath.rewind();
                 return true;
         }
         return false;
@@ -149,7 +147,7 @@ public class BestPaintBoard extends View {
         Rect mInvalidRect = new Rect();
         mPath.moveTo(x, y);
 
-        final int border = minvalidateExtraBorder;
+        final int border = mInvalidateExtraBorder;
         mInvalidRect.set((int) x - border, (int) y - border, (int) x + border, (int) y + border);
 
         mCurveEndX = x;
@@ -163,15 +161,15 @@ public class BestPaintBoard extends View {
         final float y = event.getY();
 
         final float dx = Math.abs(x - lastX);
-        final float dy = Math.abs(x - lastY);
+        final float dy = Math.abs(y - lastY);
 
         Rect mInvalidRect = new Rect();
         if (dx >= TOUCH_TOLERANCE || dy >= TOUCH_TOLERANCE) {
-            final int border = minvalidateExtraBorder;
+            final int border = mInvalidateExtraBorder;
             mInvalidRect.set((int) mCurveEndX - border, (int) mCurveEndY - border, (int) mCurveEndX + border, (int) mCurveEndY + border);
 
             float cX = mCurveEndX = (x + lastX) / 2;
-            float cY = mCurveEndY = (x + lastY) / 2;
+            float cY = mCurveEndY = (y + lastY) / 2;
 
             mPath.quadTo(lastX, lastY, cX, cY);
 
